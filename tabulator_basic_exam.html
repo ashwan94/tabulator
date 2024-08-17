@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabulator Example</title>
+    <!-- Tabulator CSS -->
+    <link href="https://unpkg.com/tabulator-tables@5.5.0/dist/css/tabulator.min.css" rel="stylesheet">
+</head>
+<body>
+    <h2>Simple Tabulator Table</h2>
+    <!-- Div where Tabulator will be rendered -->
+    <div id="example-table"></div>
+
+    <!-- Tabulator JS -->
+    <script src="https://unpkg.com/tabulator-tables@5.5.0/dist/js/tabulator.min.js"></script>
+    <script>
+        // Define data for the table
+        var tableData = [
+            {id: 1, name: "John Doe", age: 29, gender: "Male", occupation: "Engineer"},
+            {id: 2, name: "Jane Smith", age: 34, gender: "Female", occupation: "Designer"},
+            {id: 3, name: "Michael Johnson", age: 41, gender: "Male", occupation: "Manager"},
+            {id: 4, name: "Emily Davis", age: 25, gender: "Female", occupation: "Developer"}
+        ];
+
+        // Initialize Tabulator on the div
+        var table = new Tabulator("#example-table", {
+            data: tableData, // Set the data
+            layout: "fitColumns", // Fit columns to width of table
+            columns: [ // Define table columns
+                {title: "ID", field: "id", sorter: "number", width: 50},
+                {title: "Name", field: "name", sorter: "string"},
+                {title: "Age", field: "age", sorter: "number"},
+                {title: "Gender", field: "gender", sorter: "string"},
+                {title: "Occupation", field: "occupation", sorter: "string"}
+            ]
+        });
+    </script>
+</body>
+</html>
